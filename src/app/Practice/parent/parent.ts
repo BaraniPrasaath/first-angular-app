@@ -19,6 +19,7 @@ import { ReactiveForms2 } from '../reactive-forms2/reactive-forms2';
 import { MultiselectDropdown } from '../multiselect-dropdown/multiselect-dropdown';
 import { TodoWithTimer } from '../todo-with-timer/todo-with-timer';
 import { GridEffect } from '../grid-effect/grid-effect';
+import { TicketBooking } from '../ticket-booking/ticket-booking';
 
 @Component({
   selector: 'app-parent',
@@ -34,6 +35,7 @@ import { GridEffect } from '../grid-effect/grid-effect';
     MultiselectDropdown,
     TodoWithTimer,
     GridEffect,
+    TicketBooking
   ],
   templateUrl: './parent.html',
   styleUrl: './parent.css',
