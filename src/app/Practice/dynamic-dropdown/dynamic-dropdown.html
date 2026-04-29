@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <div>
+      <select [(ngModel)]="selectedContinent" name="Continents" class="border rounded-lg">
+        <option *ngFor="let c of continent" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+    <div>{{ selectedContinent }}</div>
+    <div>
+      <select [(ngModel)]="selectedCountry" name="Countries" class="border rounded-lg">
+        <option *ngFor="let c of countries[selectedContinent]" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+    <div>{{ selectedCountry }}</div>
+  </div>
+</div>

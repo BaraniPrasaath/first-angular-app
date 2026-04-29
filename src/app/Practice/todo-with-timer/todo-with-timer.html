@@ -1,0 +1,28 @@
+<div class="flex flex-col items-center my-8 bg-gray-300 p-10">
+  <div>
+    <h1 class="font-bold text-2xl">ToDo List</h1>
+  </div>
+  <div class="flex items-center h-30 w-120 rounded shadow-lg bg-white mt-5">
+    <div class="flex justify-between w-full mx-5">
+      <input
+        type="text"
+        placeholder="Enter the task name"
+        [(ngModel)]="input.taskname"
+        class="text-sm px-4 py-2 border rounded-sm w-90"
+      />
+      <button
+        class="text-sm bg-blue-600 text-white rounded-sm cursor-pointer px-4 py-2 hover:bg-blue-700"
+        (click)="onClick()"
+      >
+        Create
+      </button>
+    </div>
+  </div>
+  @if (tasks().length) {
+    @for (task of tasks(); track task.taskname) {
+      <div>
+        <app-todo-list [task]="task" (msg)="receiveMsg($event)"></app-todo-list>
+      </div>
+    }
+  }
+</div>

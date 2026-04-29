@@ -1,0 +1,97 @@
+<div class="flex flex-col gap-4 mx-4">
+  <div>
+    <app-search-field></app-search-field>
+  </div>
+  <div class="">
+    <div class="grid grid-cols-3 text-center space-y-10 mx-4 mt-6">
+      <div class="flex flex-col gap-2 items-center">
+        <div>
+          <h1 class="font-bold">Parent Component</h1>
+        </div>
+
+        <!-- option one -->
+        <!-- <div #refDiv class="border rounded-lg bg-blue-500 p-4">
+          <h1 #refH1 class="p-8 font-bold">Color changed</h1>
+          <app-child (color)="changeColor()"></app-child>
+        </div> -->
+
+        <!-- option two -->
+        <div [style.background-color]="bgToggle()" class="border rounded-lg bg-blue-500 p-4">
+          <h1 [style.color]="textToggle()" class="p-8 font-bold">Color changed</h1>
+          <app-child (color)="changeColor()"></app-child>
+        </div>
+        <div>
+          <input #inField [(ngModel)]="inputText" type="text" class="border rounded-md p-2" />
+          <h1>{{ inputText() }}</h1>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="text-center">
+          <h1 class="font-bold">Undo & Redo Functionality</h1>
+        </div>
+        <div>
+          <textarea
+            name="undo functionality"
+            id=""
+            class="border rounded-md p-2 text-sm h-50 w-60"
+            [(ngModel)]="areaText"
+            (ngModelChange)="textChange($event)"
+          ></textarea>
+        </div>
+        <div class="flex justify-between w-50 ml-25">
+          <div class="border rounded-md">
+            <button
+              class="text-sm px-2 py-1 cursor-pointer hover:bg-black hover:text-white"
+              (click)="undo()"
+              [disabled]="undoStack.length === 0"
+            >
+              Undo
+            </button>
+          </div>
+          <div class="border rounded-md">
+            <button
+              class="text-sm px-2 py-1 cursor-pointer hover:bg-black hover:text-white"
+              (click)="redo()"
+              [disabled]="redoStack.length === 0"
+            >
+              Redo
+            </button>
+          </div>
+          <div class="border rounded-md">
+            <button
+              class="text-sm px-2 py-1 cursor-pointer hover:bg-black hover:text-white"
+              (click)="clear()"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <app-undo-component></app-undo-component>
+      </div>
+      <div>
+        <app-reactive-forms></app-reactive-forms>
+      </div>
+      <div>
+        <app-dynamic-dropdown></app-dynamic-dropdown>
+      </div>
+      <div>
+        <app-crud-operations></app-crud-operations>
+      </div>
+    </div>
+    <div class="border-t">
+      <app-reactive-forms2></app-reactive-forms2>
+    </div>
+    <div class="border-t">
+      <app-multiselect-dropdown></app-multiselect-dropdown>
+    </div>
+    <div class="border-t">
+      <app-todo-with-timer></app-todo-with-timer>
+    </div>
+    <div class="border-t">
+      <app-grid-effect></app-grid-effect>
+    </div>
+  </div>
+</div>

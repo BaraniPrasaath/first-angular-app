@@ -1,0 +1,23 @@
+<div class="flex flex-col gap-2 items-center">
+  <div>
+    <h1 class="font-bold text-center">Mounting and Un-Mounting Component</h1>
+  </div>
+  <div
+    *ngIf="showDiv"
+    class="flex flex-col gap-2 justify-center items-center border rounded-lg h-56 w-60 bg-cyan-400 px-4"
+  >
+    <h1>Un-Mount in: {{ timer() }} sec</h1>
+    <div class="text-center">
+      <h1>The Component is mounter</h1>
+      <h1>{{ count }} times</h1>
+    </div>
+  </div>
+  <div *ngIf="showButton" class="border rounded-md">
+    <button
+      class="text-sm px-2 py-1 cursor-pointer hover:bg-black hover:text-white"
+      (click)="undo()"
+    >
+      Undo
+    </button>
+  </div>
+</div>

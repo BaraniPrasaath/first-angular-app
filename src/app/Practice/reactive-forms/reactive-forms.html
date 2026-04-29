@@ -1,0 +1,102 @@
+<form action="" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="flex flex-col border rounded-lg gap-2 p-2">
+    <div>
+      <input
+        type="text"
+        placeholder="user name"
+        formControlName="userName"
+        class="border rounded-md text-sm px-2 py-1"
+      />
+      <div *ngIf="userForm.get('userName')?.touched && userForm.get('userName')?.errors" class="mt-2">
+        <div *ngIf="userForm.get('userName')?.errors?.['required']">
+          <h1 class="text-xs text-red-500">this field is required</h1>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="email"
+        formControlName="email"
+        class="border rounded-md text-sm px-2 py-1"
+      />
+      <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors" class="mt-2">
+        <div *ngIf="userForm.get('email')?.errors?.['required']">
+          <h1 class="text-xs text-red-500">this field is required</h1>
+        </div>
+        <div *ngIf="userForm.get('email')?.errors?.['email']">
+          <h1 class="text-xs text-red-500">enter a valid email</h1>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="mobile"
+        formControlName="mobile"
+        class="border rounded-md text-sm px-2 py-1"
+      />
+      <div *ngIf="userForm.get('mobile')?.touched && userForm.get('mobile')?.errors" class="mt-2">
+        <div *ngIf="userForm.get('mobile')?.errors?.['required']">
+          <h1 class="text-xs text-red-500">this field is required</h1>
+        </div>
+        <div *ngIf="userForm.get('mobile')?.errors?.['minlength']">
+          <h1 class="text-xs text-red-500">mobile number must be at-least 10 digits</h1>
+        </div>
+        <div *ngIf="userForm.get('mobile')?.errors?.['maxlength']">
+          <h1 class="text-xs text-red-500">mobile number must be at-most 10 digits</h1>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Password"
+        formControlName="password"
+        class="border rounded-md text-sm px-2 py-1"
+      />
+      <div
+        *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors"
+        class="mt-2"
+      >
+        <div *ngIf="userForm.get('password')?.errors?.['required']">
+          <h1 class="text-xs text-red-500">this field is required</h1>
+        </div>
+        <div *ngIf="userForm.get('password')?.errors?.['minlength']">
+          <h1 class="text-xs text-red-500">password must be at-least 6 digits</h1>
+        </div>
+      </div>
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Confirm password"
+        formControlName="conformPassword"
+        class="border rounded-md text-sm px-2 py-1"
+      />
+      <div
+        *ngIf="userForm.get('conformPassword')?.touched && userForm.get('conformPassword')?.errors"
+        class="mt-2"
+      >
+        <div *ngIf="userForm.get('conformPassword')?.errors?.['required']">
+          <h1 class="text-xs text-red-500">this field is required</h1>
+        </div>
+        <div *ngIf="userForm.get('conformPassword')?.errors?.['minlength']">
+          <h1 class="text-xs text-red-500">password must be at-least 6 digits</h1>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-2 ml-30">
+      <div class="border rounded-md">
+        <button type="submit" class="text-sm px-2 py-1 cursor-pointer hover:bg-black hover:text-white">
+          Submit
+        </button>
+      </div>
+      <div class="border rounded-md">
+        <button type="reset" class="text-sm px-2 py-1 cursor-pointer hover:bg-black hover:text-white" (click)="onReset()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

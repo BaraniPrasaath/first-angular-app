@@ -1,0 +1,5 @@
+<h1>
+  Message from parent: <strong>{{ parentMsg }}</strong>
+</h1>
+<app-body [Person]="name" (msg)="receiveMessage($event)"></app-body>
+

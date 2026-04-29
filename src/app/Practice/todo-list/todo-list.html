@@ -1,0 +1,39 @@
+<div class="bg-white rounded-lg shadow-lg p-4 mt-5 h-35 w-120">
+  <div>
+    <h1 class="font-bold text-2xl">{{ task.taskname }}</h1>
+  </div>
+  <div class="flex flex-col gap-4">
+    <div>
+      <h1>{{ timer() }}</h1>
+    </div>
+    <div class="flex gap-5">
+      @if (!start()) {
+        <button
+          class="text-sm bg-blue-600 text-white rounded-sm cursor-pointer px-4 py-2 hover:bg-blue-700"
+          (click)="onStart()"
+        >
+          Start
+        </button>
+      } @else {
+        <button
+          class="text-sm bg-blue-600 text-white rounded-sm cursor-pointer px-4 py-2 hover:bg-blue-700"
+          (click)="onPause()"
+        >
+          Pause
+        </button>
+      }
+      <button
+        class="text-sm bg-blue-600 text-white rounded-sm cursor-pointer px-4 py-2 hover:bg-blue-700"
+        (click)="onRestart()"
+      >
+        Re-Start
+      </button>
+      <button
+        class="text-sm bg-blue-600 text-white rounded-sm cursor-pointer px-4 py-2 hover:bg-blue-700"
+        (click)="onDelete()"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

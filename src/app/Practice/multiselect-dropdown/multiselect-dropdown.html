@@ -1,0 +1,95 @@
+<div class="flex flex-col justify-center items-center my-10">
+  <div>
+    <h1 class="font-bold text-2xl">Multi Selector Drop Down Menu</h1>
+  </div>
+  <div class="border rounded-lg mt-5">
+    <div class="flex items-center p-1 border rounded-sm text-sm px-4 py-2">
+      <div class="flex gap-4 cursor-pointer" (click)="onClick()">
+        @if (up()) {
+          <div><p>⬆️</p></div>
+        } @else {
+          <div><p>⬇️</p></div>
+        }
+        <div>
+          <h1>Select Option</h1>
+        </div>
+      </div>
+    </div>
+
+    @if (up()) {
+      <div>
+        <div class="flex flex-col border rounded-sm px-4">
+          <div class="flex gap-4">
+            <input
+              type="checkbox"
+              id="option1"
+              class="cursor-pointer"
+              [(ngModel)]="value.option1"
+            />
+            <label for="option1">Option 1</label>
+          </div>
+          <div class="flex gap-4">
+            <input
+              type="checkbox"
+              id="option2"
+              class="cursor-pointer"
+              [(ngModel)]="value.option2"
+            />
+            <label for="option2">Option 2</label>
+          </div>
+          <div class="flex gap-4">
+            <input
+              type="checkbox"
+              id="option3"
+              class="cursor-pointer"
+              [(ngModel)]="value.option3"
+            />
+            <label for="option3">Option 3</label>
+          </div>
+          <div class="flex gap-4">
+            <input
+              type="checkbox"
+              id="option4"
+              class="cursor-pointer"
+              [(ngModel)]="value.option4"
+            />
+            <label for="option4">Option 4</label>
+          </div>
+        </div>
+        <div class="flex gap-8 p-4">
+          <button
+            class="border rounded-sm text-xs px-2 py-1 cursor-pointer hover:text-white hover:bg-black"
+            (click)="onSubmit()"
+          >
+            Submit
+          </button>
+          <button
+            class="border rounded-sm text-xs px-2 py-1 cursor-pointer hover:text-white hover:bg-black"
+            (click)="onClear()"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    }
+    @if (submitted()) {
+      <div class="text-center">
+        <h1 class="font-bold text-sm p-2">You Have Selected</h1>
+      </div>
+      <div class="flex gap-5 p-4">
+        @if (value.option1) {
+          <h1>option 1</h1>
+        }
+        @if (value.option2) {
+          <h1>option 2</h1>
+        }
+        @if (value.option3) {
+          <h1>option 3</h1>
+        }
+        @if (value.option4) {
+          <h1>option 4</h1>
+        }
+      </div>
+    }
+  </div>
+</div>
